@@ -1,0 +1,24 @@
+<datapower-configuration version="3"><export-details><description>Exported Configuration </description><user>admin</user><domain>default</domain><comment/><product-id>9002-XS40-00</product-id><product>XS40</product><model>DataPower XS40</model><device-name>DataPower XS40</device-name><serial-number>00505 20338</serial-number><firmware-version>XS40.3.7.2.0</firmware-version><firmware-build>165356</firmware-build><firmware-timestamp>2008/12/18 17:38:25</firmware-timestamp><current-date>2009-02-13</current-date><current-time>11:24:06 EST</current-time><reset-date>2009-01-08</reset-date><reset-time>12:27:35 EST</reset-time><login-message/><custom-ui-file/></export-details><interface-data><interface name="eth0" ip-addr="10.10.51.110"/><interface name="mgt0" ip-addr="10.10.51.113"/></interface-data><configuration><Domain name="Nces" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<BaseDir>Nces:</BaseDir>
+<BaseDir>local:</BaseDir>
+<ConfigFile>Nces.cfg</ConfigFile>
+<NeighborDomain class="Domain">default</NeighborDomain>
+<URLMap>
+<http>on</http>
+<https>on</https>
+<snmp>on</snmp>
+<ftp>on</ftp>
+<mailto>on</mailto>
+<mq>on</mq></URLMap>
+<FileMap>
+<CopyFrom>on</CopyFrom>
+<CopyTo>on</CopyTo>
+<Delete>on</Delete>
+<Display>on</Display>
+<Exec>on</Exec>
+<Subdir>on</Subdir></FileMap>
+<ConfigMode>local</ConfigMode>
+<ImportFormat>ZIP</ImportFormat>
+<LocalIPRewrite>on</LocalIPRewrite>
+<MaxChkpoints>3</MaxChkpoints></Domain></configuration><domains><domain name="Nces"/></domains></datapower-configuration>
