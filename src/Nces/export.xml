@@ -1,7 +1,11 @@
-<datapower-configuration version="3"><export-details><description>Exported Configuration </description><user>admin</user><domain>Nces</domain><comment/><product-id>9002-XS40-00</product-id><product>XS40</product><model>DataPower XS40</model><device-name>DataPower XS40</device-name><serial-number>00505 20338</serial-number><firmware-version>XS40.3.7.2.0</firmware-version><firmware-build>165356</firmware-build><firmware-timestamp>2008/12/18 17:38:25</firmware-timestamp><current-date>2009-02-13</current-date><current-time>11:24:05 EST</current-time><reset-date>2009-01-08</reset-date><reset-time>12:27:35 EST</reset-time><login-message/><custom-ui-file/></export-details><interface-data><interface name="eth0" ip-addr="10.10.51.110"/><interface name="mgt0" ip-addr="10.10.51.113"/></interface-data><configuration domain="Nces"><CryptoCertificate name="idcred-service-discovery_cert" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<datapower-configuration version="3"><export-details><description>Exported Configuration </description><user>admin</user><domain>Nces</domain><comment/><product-id>9002-XS40-00</product-id><product>XS40</product><model>DataPower XS40</model><device-name>DataPower XS40</device-name><serial-number>00505 20338</serial-number><firmware-version>XS40.3.7.2.0</firmware-version><firmware-build>165356</firmware-build><firmware-timestamp>2008/12/18 17:38:25</firmware-timestamp><current-date>2009-02-13</current-date><current-time>13:38:07 EST</current-time><reset-date>2009-01-08</reset-date><reset-time>12:27:36 EST</reset-time><login-message/><custom-ui-file/></export-details><interface-data><interface name="eth0" ip-addr="10.10.51.110"/><interface name="mgt0" ip-addr="10.10.51.113"/></interface-data><configuration domain="Nces"><CryptoCertificate name="idcred-service-discovery_cert" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
 <mAdminState>enabled</mAdminState>
 <Filename>cert:///dptest.crt</Filename>
 <Password>password</Password>
+<PasswordAlias>off</PasswordAlias>
+<IgnoreExpiration>off</IgnoreExpiration></CryptoCertificate><CryptoCertificate name="RussCaAuthority" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<Filename>cert:///russolsenca_cert.pem</Filename>
 <PasswordAlias>off</PasswordAlias>
 <IgnoreExpiration>off</IgnoreExpiration></CryptoCertificate><CryptoCertificate name="systinet-test_valcred_cert_2" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
 <mAdminState>enabled</mAdminState>
@@ -14,9 +18,18 @@
 <PasswordAlias>off</PasswordAlias></CryptoKey><CryptoIdentCred name="idcred-service-discovery" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
 <mAdminState>enabled</mAdminState>
 <Key class="CryptoKey">idcred-service-discovery_key</Key>
-<Certificate class="CryptoCertificate">idcred-service-discovery_cert</Certificate></CryptoIdentCred><CryptoProfile name="service-discovery" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<Certificate class="CryptoCertificate">idcred-service-discovery_cert</Certificate></CryptoIdentCred><CryptoValCred name="ServiceDiscovery" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<Certificate class="CryptoCertificate">RussCaAuthority</Certificate>
+<CertValidationMode>legacy</CertValidationMode>
+<UseCRL>on</UseCRL>
+<RequireCRL>off</RequireCRL>
+<CRLDPHandling>ignore</CRLDPHandling>
+<InitialPolicySet>2.5.29.32.0</InitialPolicySet>
+<ExplicitPolicy>off</ExplicitPolicy></CryptoValCred><CryptoProfile name="service-discovery" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
 <mAdminState>enabled</mAdminState>
 <IdentCredential class="CryptoIdentCred">idcred-service-discovery</IdentCredential>
+<ValCredential class="CryptoValCred">ServiceDiscovery</ValCredential>
 <Ciphers>DEFAULT</Ciphers>
 <SSLOptions>
 <OpenSSL-default>on</OpenSSL-default>
@@ -554,7 +567,7 @@
 <NamedInOutLocationType>default</NamedInOutLocationType>
 <StylesheetParameters>
 <ParameterName>{http://www.datapower.com/param/config}valcred</ParameterName>
-<ParameterValue>valcred-service-discovery</ParameterValue></StylesheetParameters>
+<ParameterValue>ServiceDiscovery</ParameterValue></StylesheetParameters>
 <Transactional>off</Transactional>
 <SOAPValidation>body</SOAPValidation>
 <SQLSourceType>static</SQLSourceType>
@@ -1113,9 +1126,9 @@
 <LocalAddress>0.0.0.0</LocalAddress>
 <UserSummary>service-discovery-web</UserSummary>
 <Priority>normal</Priority>
-<LocalPort>2052</LocalPort>
-<RemoteAddress>uddi-server-host</RemoteAddress>
-<RemotePort>8443</RemotePort>
+<LocalPort>8443</LocalPort>
+<RemoteAddress>sdprodsys.fgm.com</RemoteAddress>
+<RemotePort>38082</RemotePort>
 <HTTPTimeout>120</HTTPTimeout>
 <HTTPPersistTimeout>180</HTTPPersistTimeout>
 <DoHostRewrite>on</DoHostRewrite>
@@ -1178,4 +1191,4 @@
 <MaxRecords>3000</MaxRecords>
 <MaxMemoryKB>64000</MaxMemoryKB>
 <CaptureMode>faults</CaptureMode>
-<BufferMode>discard</BufferMode></WebServicesAgent></configuration><files><file name="local:///check_signature.xsl" src="local/check_signature.xsl" location="local" hash="aqmMkNYY/gwIpb5N5/sSvS9yt5M="/><file name="local:///ensure_assertion.xsl" src="local/ensure_assertion.xsl" location="local" hash="g7RrIahya9cLQ8XvcDokZJfBsdI="/><file name="local:///ensure_msgid.xsl" src="local/ensure_msgid.xsl" location="local" hash="Rq/sg/TwBFoxA369X59um1Sa370="/><file name="local:///service_config.xml" src="local/service_config.xml" location="local" hash="Ksw8QA0+LTZpK9QY7uWBxiaNLNQ="/><file name="local:///auth_route.xsl" src="local/auth_route.xsl" location="local" hash="hbp3uo7zykWrclcUdXYJLOVwl+c="/><file name="local:///DataPowerObserverRequest.xsl" src="local/DataPowerObserverRequest.xsl" location="local" hash="m1guOdY8du/I9qMRL7m+oIT9iKk="/><file name="local:///DataPowerObserverResponse.xsl" src="local/DataPowerObserverResponse.xsl" location="local" hash="8ns6kVGrBxVMagr0Y5QAw1TrhFU="/><file name="local:///sign-wssec-withid.xsl" src="local/sign-wssec-withid.xsl" location="local" hash="um8AUqCaezL4qvenO7ZV1d+Z1ak="/><file name="local:///config-xacml-service.xml" src="local/config-xacml-service.xml" location="local" hash="DtQKSstlID566bc1ctmhb0ccSWY="/><file name="local:///config-saml-service.xml" src="local/config-saml-service.xml" location="local" hash="IDyzumtbO4lSSU8Os4p/+YnzQSY="/><file name="local:///just_route.xsl" src="local/just_route.xsl" location="local" hash="cNJTxpp0TZcshsEAOD4H8nxJ/Qg="/><file name="local:///check_credentials.xsl" src="local/check_credentials.xsl" location="local" hash="DI53YsvW7kGz/sZzxy9b9jbYAww="/><file name="local:///auth.xsl" src="local/auth.xsl" location="local" hash="P3FNuiRdqJ92gULnrork+2QoeT8="/><file name="local:///valid_dns.xml" src="local/valid_dns.xml" location="local" hash="YAkfKORbn/PZnnvj5JN+TWunxP4="/><file name="local:///strip.xsl" src="local/strip.xsl" location="local" hash="2g4cOG0vKbbvMRLNGf3cHM9euqw="/><file name="config:///Nces.cfg" src="config/Nces.cfg" location="config" hash="2jmj7l5rSw0yVb/vlWAYkK/YBwk="/><file name="webgui:///clixform.xsl" src="dp-aux/clixform.xsl" location="dp-aux" internal="true" hash="LltPiYUIBfTDWIP+J4RustjfTs0="/><file name="webgui:///SchemaUtil.xsl" src="dp-aux/SchemaUtil.xsl" location="dp-aux" internal="true" hash="3bAUL4xXdeYvH2Kjlmc8096tPzQ="/><file name="webgui:///management.xsl" src="dp-aux/management.xsl" location="dp-aux" internal="true" hash="ABCOA9XCwDzgwRYkzwlwj0nJ1wY="/><file name="webgui:///map-dmz.xsl" src="dp-aux/map-dmz.xsl" location="dp-aux" internal="true" hash="uGg9nNtMFGvcAh7wlcXTOew1gBQ="/><file name="webgui:///drMgmt.xml" src="dp-aux/drMgmt.xml" location="dp-aux" internal="true" hash="TdO9/Zydb58Kwz2eEqlvIUvHF5g="/><file name="webgui:///basetypes.xml" src="dp-aux/basetypes.xml" location="dp-aux" internal="true" hash="va3o1RHfV1IkJRgzaRvf9jCxSgo="/></files></datapower-configuration>
+<BufferMode>discard</BufferMode></WebServicesAgent></configuration><files><file name="local:///check_signature.xsl" src="local/check_signature.xsl" location="local" hash="aqmMkNYY/gwIpb5N5/sSvS9yt5M="/><file name="local:///ensure_assertion.xsl" src="local/ensure_assertion.xsl" location="local" hash="g7RrIahya9cLQ8XvcDokZJfBsdI="/><file name="local:///ensure_msgid.xsl" src="local/ensure_msgid.xsl" location="local" hash="Rq/sg/TwBFoxA369X59um1Sa370="/><file name="local:///service_config.xml" src="local/service_config.xml" location="local" hash="Ksw8QA0+LTZpK9QY7uWBxiaNLNQ="/><file name="local:///auth_route.xsl" src="local/auth_route.xsl" location="local" hash="hbp3uo7zykWrclcUdXYJLOVwl+c="/><file name="local:///DataPowerObserverRequest.xsl" src="local/DataPowerObserverRequest.xsl" location="local" hash="m1guOdY8du/I9qMRL7m+oIT9iKk="/><file name="local:///DataPowerObserverResponse.xsl" src="local/DataPowerObserverResponse.xsl" location="local" hash="8ns6kVGrBxVMagr0Y5QAw1TrhFU="/><file name="local:///sign-wssec-withid.xsl" src="local/sign-wssec-withid.xsl" location="local" hash="um8AUqCaezL4qvenO7ZV1d+Z1ak="/><file name="local:///config-xacml-service.xml" src="local/config-xacml-service.xml" location="local" hash="DtQKSstlID566bc1ctmhb0ccSWY="/><file name="local:///config-saml-service.xml" src="local/config-saml-service.xml" location="local" hash="IDyzumtbO4lSSU8Os4p/+YnzQSY="/><file name="local:///just_route.xsl" src="local/just_route.xsl" location="local" hash="cNJTxpp0TZcshsEAOD4H8nxJ/Qg="/><file name="local:///check_credentials.xsl" src="local/check_credentials.xsl" location="local" hash="DI53YsvW7kGz/sZzxy9b9jbYAww="/><file name="local:///auth.xsl" src="local/auth.xsl" location="local" hash="P3FNuiRdqJ92gULnrork+2QoeT8="/><file name="local:///valid_dns.xml" src="local/valid_dns.xml" location="local" hash="YAkfKORbn/PZnnvj5JN+TWunxP4="/><file name="local:///strip.xsl" src="local/strip.xsl" location="local" hash="2g4cOG0vKbbvMRLNGf3cHM9euqw="/><file name="config:///Nces.cfg" src="config/Nces.cfg" location="config" hash="om9A2CSWAFtHRRR4mUuA1jlVC0A="/><file name="webgui:///clixform.xsl" src="dp-aux/clixform.xsl" location="dp-aux" internal="true" hash="LltPiYUIBfTDWIP+J4RustjfTs0="/><file name="webgui:///SchemaUtil.xsl" src="dp-aux/SchemaUtil.xsl" location="dp-aux" internal="true" hash="3bAUL4xXdeYvH2Kjlmc8096tPzQ="/><file name="webgui:///management.xsl" src="dp-aux/management.xsl" location="dp-aux" internal="true" hash="ABCOA9XCwDzgwRYkzwlwj0nJ1wY="/><file name="webgui:///map-dmz.xsl" src="dp-aux/map-dmz.xsl" location="dp-aux" internal="true" hash="uGg9nNtMFGvcAh7wlcXTOew1gBQ="/><file name="webgui:///drMgmt.xml" src="dp-aux/drMgmt.xml" location="dp-aux" internal="true" hash="TdO9/Zydb58Kwz2eEqlvIUvHF5g="/><file name="webgui:///basetypes.xml" src="dp-aux/basetypes.xml" location="dp-aux" internal="true" hash="va3o1RHfV1IkJRgzaRvf9jCxSgo="/></files></datapower-configuration>
