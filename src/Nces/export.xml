@@ -1,11 +1,35 @@
-<datapower-configuration version="3"><export-details><description>Exported Configuration </description><user>admin</user><domain>Nces</domain><comment/><product-id>9002-XS40-00</product-id><product>XS40</product><model>DataPower XS40</model><device-name>DataPower XS40</device-name><serial-number>00505 20338</serial-number><firmware-version>XS40.3.7.2.0</firmware-version><firmware-build>165356</firmware-build><firmware-timestamp>2008/12/18 17:38:25</firmware-timestamp><current-date>2009-02-13</current-date><current-time>13:38:07 EST</current-time><reset-date>2009-01-08</reset-date><reset-time>12:27:36 EST</reset-time><login-message/><custom-ui-file/></export-details><interface-data><interface name="eth0" ip-addr="10.10.51.110"/><interface name="mgt0" ip-addr="10.10.51.113"/></interface-data><configuration domain="Nces"><CryptoCertificate name="idcred-service-discovery_cert" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<datapower-configuration version="3"><export-details><description>Exported Configuration </description><user>admin</user><domain>Nces</domain><comment>NCES Service Discovery</comment><product-id>9002-XS40-00</product-id><product>XS40</product><model>DataPower XS40</model><device-name>datapoweram.fgm.com</device-name><serial-number>00505 20338</serial-number><firmware-version>XS40.3.7.2.0</firmware-version><firmware-build>165356</firmware-build><firmware-timestamp>2008/12/18 17:38:25</firmware-timestamp><current-date>2009-02-26</current-date><current-time>09:55:54 EST</current-time><reset-date>2009-02-13</reset-date><reset-time>21:03:13 EST</reset-time><login-message/><custom-ui-file/></export-details><interface-data><interface name="eth0" ip-addr="10.10.51.110"/><interface name="mgt0" ip-addr="10.10.51.113"/></interface-data><configuration domain="Nces"><CryptoCertificate name="abl" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
 <mAdminState>enabled</mAdminState>
-<Filename>cert:///dptest.crt</Filename>
+<Filename>cert:///abl.pem</Filename>
+<PasswordAlias>off</PasswordAlias>
+<IgnoreExpiration>off</IgnoreExpiration></CryptoCertificate><CryptoCertificate name="abm" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<Filename>cert:///abm.pem</Filename>
+<PasswordAlias>off</PasswordAlias>
+<IgnoreExpiration>off</IgnoreExpiration></CryptoCertificate><CryptoCertificate name="idcred-service-discovery_cert" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<Filename>cert:///dptest.pem</Filename>
 <Password>password</Password>
+<PasswordAlias>off</PasswordAlias>
+<IgnoreExpiration>off</IgnoreExpiration></CryptoCertificate><CryptoCertificate name="maryanne" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<Filename>cert:///maryanne.pem</Filename>
+<PasswordAlias>off</PasswordAlias>
+<IgnoreExpiration>off</IgnoreExpiration></CryptoCertificate><CryptoCertificate name="mdr" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<Filename>cert:///mdr.pem</Filename>
 <PasswordAlias>off</PasswordAlias>
 <IgnoreExpiration>off</IgnoreExpiration></CryptoCertificate><CryptoCertificate name="RussCaAuthority" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
 <mAdminState>enabled</mAdminState>
 <Filename>cert:///russolsenca_cert.pem</Filename>
+<PasswordAlias>off</PasswordAlias>
+<IgnoreExpiration>off</IgnoreExpiration></CryptoCertificate><CryptoCertificate name="scotth" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<Filename>cert:///scotth.pem</Filename>
+<PasswordAlias>off</PasswordAlias>
+<IgnoreExpiration>off</IgnoreExpiration></CryptoCertificate><CryptoCertificate name="sdtestsys" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<Filename>cert:///sdtestsys.pem</Filename>
 <PasswordAlias>off</PasswordAlias>
 <IgnoreExpiration>off</IgnoreExpiration></CryptoCertificate><CryptoCertificate name="systinet-test_valcred_cert_2" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
 <mAdminState>enabled</mAdminState>
@@ -20,7 +44,12 @@
 <Key class="CryptoKey">idcred-service-discovery_key</Key>
 <Certificate class="CryptoCertificate">idcred-service-discovery_cert</Certificate></CryptoIdentCred><CryptoValCred name="ServiceDiscovery" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
 <mAdminState>enabled</mAdminState>
-<Certificate class="CryptoCertificate">RussCaAuthority</Certificate>
+<Certificate class="CryptoCertificate">sdtestsys</Certificate>
+<Certificate class="CryptoCertificate">scotth</Certificate>
+<Certificate class="CryptoCertificate">abl</Certificate>
+<Certificate class="CryptoCertificate">abm</Certificate>
+<Certificate class="CryptoCertificate">maryanne</Certificate>
+<Certificate class="CryptoCertificate">mdr</Certificate>
 <CertValidationMode>legacy</CertValidationMode>
 <UseCRL>on</UseCRL>
 <RequireCRL>off</RequireCRL>
@@ -75,11 +104,11 @@
 <IdenticalEventSuppression read-only="true">off</IdenticalEventSuppression>
 <IdenticalEventPeriod read-only="true">10</IdenticalEventPeriod>
 <LogEvents>
-<Class class="LogLabel">all</Class>
-<Priority>error</Priority></LogEvents>
-<LogEvents>
 <Class class="LogLabel">mgmt</Class>
-<Priority>notice</Priority></LogEvents></LogTarget><ProcessingMetadata name="ftp-usercert-metadata" intrinsic="true" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<Priority>notice</Priority></LogEvents>
+<LogEvents>
+<Class class="LogLabel">all</Class>
+<Priority>debug</Priority></LogEvents></LogTarget><ProcessingMetadata name="ftp-usercert-metadata" intrinsic="true" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
 <mAdminState>enabled</mAdminState>
 <MetaItem>
 <MetaCategory>variable</MetaCategory>
@@ -407,7 +436,7 @@
 <Type>url</Type>
 <HttpTag/>
 <HttpValue/>
-<Url>/inquiry*</Url>
+<Url>*/inquiry</Url>
 <ErrorCode/>
 <XPATHExpression/></MatchRules>
 <MatchWithPCRE>off</MatchWithPCRE>
@@ -441,13 +470,44 @@
 <ErrorCode/>
 <XPATHExpression/></MatchRules>
 <MatchWithPCRE>off</MatchWithPCRE>
-<CombineWithOr>off</CombineWithOr></Matching><URLRewritePolicy name="ServiceDiscovery" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<CombineWithOr>off</CombineWithOr></Matching><Matching name="webui" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<MatchRules>
+<Type>url</Type>
+<HttpTag/>
+<HttpValue/>
+<Url>/wasp/uddi/web</Url>
+<ErrorCode/>
+<XPATHExpression/></MatchRules>
+<MatchRules>
+<Type>url</Type>
+<HttpTag/>
+<HttpValue/>
+<Url>/wasp/uddi/web/*</Url>
+<ErrorCode/>
+<XPATHExpression/></MatchRules>
+<MatchRules>
+<Type>url</Type>
+<HttpTag/>
+<HttpValue/>
+<Url>/wasp/uddi/webdata</Url>
+<ErrorCode/>
+<XPATHExpression/></MatchRules>
+<MatchRules>
+<Type>url</Type>
+<HttpTag/>
+<HttpValue/>
+<Url>/wasp/uddi/webdata/*</Url>
+<ErrorCode/>
+<XPATHExpression/></MatchRules>
+<MatchWithPCRE>off</MatchWithPCRE>
+<CombineWithOr>on</CombineWithOr></Matching><URLRewritePolicy name="ServiceDiscovery" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
 <mAdminState>enabled</mAdminState>
 <Direction>request</Direction>
 <URLRewriteRule>
 <Type>absolute-rewrite</Type>
 <MatchRegexp>/inquiry</MatchRegexp>
-<InputReplaceRegexp>eProxy/service/UDDI_Inquiry_PortType_Proxy</InputReplaceRegexp>
+<InputReplaceRegexp>/eProxy/service/UDDI_Inquiry_PortType_Proxy</InputReplaceRegexp>
 <StyleReplaceRegexp/>
 <InputUnescape>off</InputUnescape>
 <StylesheetUnescape>on</StylesheetUnescape>
@@ -466,15 +526,6 @@
 <Type>absolute-rewrite</Type>
 <MatchRegexp>/security</MatchRegexp>
 <InputReplaceRegexp>/eProxy/service/UDDI_Security_PortType_Proxy</InputReplaceRegexp>
-<StyleReplaceRegexp/>
-<InputUnescape>off</InputUnescape>
-<StylesheetUnescape>on</StylesheetUnescape>
-<Header>none</Header>
-<NormalizeURL>off</NormalizeURL></URLRewriteRule>
-<URLRewriteRule>
-<Type>absolute-rewrite</Type>
-<MatchRegexp>secquiry</MatchRegexp>
-<InputReplaceRegexp>/eProxy/service/UDDI_Inquiry_PortType_Proxy</InputReplaceRegexp>
 <StyleReplaceRegexp/>
 <InputUnescape>off</InputUnescape>
 <StylesheetUnescape>on</StylesheetUnescape>
@@ -706,6 +757,66 @@
 <RetryInterval>1000</RetryInterval>
 <MultipleOutputs>off</MultipleOutputs>
 <IteratorType>XPATH</IteratorType>
+<Timeout>0</Timeout></StylePolicyAction><StylePolicyAction name="new-service-disc-web_rule_0_results_0" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<Type>results</Type>
+<Input>INPUT</Input>
+<NamedInOutLocationType>default</NamedInOutLocationType>
+<OutputType>default</OutputType>
+<Transactional>off</Transactional>
+<SOAPValidation>body</SOAPValidation>
+<SQLSourceType>static</SQLSourceType>
+<Asynchronous>off</Asynchronous>
+<ResultsMode>first-available</ResultsMode>
+<RetryCount>0</RetryCount>
+<RetryInterval>1000</RetryInterval>
+<MultipleOutputs>off</MultipleOutputs>
+<IteratorType>XPATH</IteratorType>
+<Timeout>0</Timeout></StylePolicyAction><StylePolicyAction name="new-service-disc-web_rule_1_filter_0" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<Type>filter</Type>
+<Input>INPUT</Input>
+<Transform>store:///filter-reject-all.xsl</Transform>
+<NamedInOutLocationType>default</NamedInOutLocationType>
+<Transactional>off</Transactional>
+<SOAPValidation>body</SOAPValidation>
+<SQLSourceType>static</SQLSourceType>
+<Asynchronous>off</Asynchronous>
+<ResultsMode>first-available</ResultsMode>
+<RetryCount>0</RetryCount>
+<RetryInterval>1000</RetryInterval>
+<MultipleOutputs>off</MultipleOutputs>
+<IteratorType>XPATH</IteratorType>
+<Timeout>0</Timeout></StylePolicyAction><StylePolicyAction name="new-service-disc-web_rule_1_results_1" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<Type>results</Type>
+<Input>INPUT</Input>
+<NamedInOutLocationType>default</NamedInOutLocationType>
+<OutputType>default</OutputType>
+<Transactional>off</Transactional>
+<SOAPValidation>body</SOAPValidation>
+<SQLSourceType>static</SQLSourceType>
+<Asynchronous>off</Asynchronous>
+<ResultsMode>first-available</ResultsMode>
+<RetryCount>0</RetryCount>
+<RetryInterval>1000</RetryInterval>
+<MultipleOutputs>off</MultipleOutputs>
+<IteratorType>XPATH</IteratorType>
+<Timeout>0</Timeout></StylePolicyAction><StylePolicyAction name="new-service-disc-web_rule_1_results_2" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<Type>results</Type>
+<Input>INPUT</Input>
+<NamedInOutLocationType>default</NamedInOutLocationType>
+<OutputType>default</OutputType>
+<Transactional>off</Transactional>
+<SOAPValidation>body</SOAPValidation>
+<SQLSourceType>static</SQLSourceType>
+<Asynchronous>off</Asynchronous>
+<ResultsMode>first-available</ResultsMode>
+<RetryCount>0</RetryCount>
+<RetryInterval>1000</RetryInterval>
+<MultipleOutputs>off</MultipleOutputs>
+<IteratorType>XPATH</IteratorType>
 <Timeout>0</Timeout></StylePolicyAction><StylePolicyAction name="no_nces_sec_inbound_rule_0_results_0" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
 <mAdminState>enabled</mAdminState>
 <Type>results</Type>
@@ -795,6 +906,51 @@
 <RetryInterval>1000</RetryInterval>
 <MultipleOutputs>off</MultipleOutputs>
 <IteratorType>XPATH</IteratorType>
+<Timeout>0</Timeout></StylePolicyAction><StylePolicyAction name="service-discovery-web_rule_1_filter_0" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<Type>filter</Type>
+<Input>INPUT</Input>
+<Transform>store:///filter-reject-all.xsl</Transform>
+<NamedInOutLocationType>default</NamedInOutLocationType>
+<Transactional>off</Transactional>
+<SOAPValidation>body</SOAPValidation>
+<SQLSourceType>static</SQLSourceType>
+<Asynchronous>off</Asynchronous>
+<ResultsMode>first-available</ResultsMode>
+<RetryCount>0</RetryCount>
+<RetryInterval>1000</RetryInterval>
+<MultipleOutputs>off</MultipleOutputs>
+<IteratorType>XPATH</IteratorType>
+<Timeout>0</Timeout></StylePolicyAction><StylePolicyAction name="service-discovery-web_rule_1_results_2" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<Type>results</Type>
+<Input>(auto)</Input>
+<NamedInOutLocationType>default</NamedInOutLocationType>
+<OutputType>default</OutputType>
+<Transactional>off</Transactional>
+<SOAPValidation>body</SOAPValidation>
+<SQLSourceType>static</SQLSourceType>
+<Asynchronous>off</Asynchronous>
+<ResultsMode>first-available</ResultsMode>
+<RetryCount>0</RetryCount>
+<RetryInterval>1000</RetryInterval>
+<MultipleOutputs>off</MultipleOutputs>
+<IteratorType>XPATH</IteratorType>
+<Timeout>0</Timeout></StylePolicyAction><StylePolicyAction name="service-discovery-web_rule_1_results_output_0" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<Type>results</Type>
+<Input>INPUT</Input>
+<NamedInOutLocationType>default</NamedInOutLocationType>
+<OutputType>default</OutputType>
+<Transactional>off</Transactional>
+<SOAPValidation>body</SOAPValidation>
+<SQLSourceType>static</SQLSourceType>
+<Asynchronous>off</Asynchronous>
+<ResultsMode>first-available</ResultsMode>
+<RetryCount>0</RetryCount>
+<RetryInterval>1000</RetryInterval>
+<MultipleOutputs>off</MultipleOutputs>
+<IteratorType>XPATH</IteratorType>
 <Timeout>0</Timeout></StylePolicyAction><StylePolicyAction name="sign-inquery_Action_0" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
 <mAdminState>enabled</mAdminState>
 <Type>filter</Type>
@@ -815,6 +971,21 @@
 <mAdminState>enabled</mAdminState>
 <Type>results</Type>
 <Input>ensured</Input>
+<NamedInOutLocationType>default</NamedInOutLocationType>
+<OutputType>default</OutputType>
+<Transactional>off</Transactional>
+<SOAPValidation>body</SOAPValidation>
+<SQLSourceType>static</SQLSourceType>
+<Asynchronous>off</Asynchronous>
+<ResultsMode>first-available</ResultsMode>
+<RetryCount>0</RetryCount>
+<RetryInterval>1000</RetryInterval>
+<MultipleOutputs>off</MultipleOutputs>
+<IteratorType>XPATH</IteratorType>
+<Timeout>0</Timeout></StylePolicyAction><StylePolicyAction name="webui-inbound_results_1" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<Type>results</Type>
+<Input>INPUT</Input>
 <NamedInOutLocationType>default</NamedInOutLocationType>
 <OutputType>default</OutputType>
 <Transactional>off</Transactional>
@@ -847,7 +1018,14 @@
 <OutputFormat>none</OutputFormat>
 <NonXMLProcessing>off</NonXMLProcessing>
 <Unprocessed>off</Unprocessed>
-<Actions class="StylePolicyAction">DoNothing_Rule_1_Action_0</Actions></StylePolicyRule><StylePolicyRule name="inbound_nces_security" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<Actions class="StylePolicyAction">DoNothing_Rule_1_Action_0</Actions></StylePolicyRule><StylePolicyRule name="inbound" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<Direction>request-rule</Direction>
+<InputFormat>none</InputFormat>
+<OutputFormat>none</OutputFormat>
+<NonXMLProcessing>off</NonXMLProcessing>
+<Unprocessed>off</Unprocessed>
+<Actions class="StylePolicyAction">new-service-disc-web_rule_1_results_2</Actions></StylePolicyRule><StylePolicyRule name="inbound_nces_security" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
 <mAdminState>enabled</mAdminState>
 <Direction>request-rule</Direction>
 <InputFormat>none</InputFormat>
@@ -880,7 +1058,14 @@
 <OutputFormat>none</OutputFormat>
 <NonXMLProcessing>off</NonXMLProcessing>
 <Unprocessed>off</Unprocessed>
-<Actions class="StylePolicyAction">nces_web_service_rule_0_results_2</Actions></StylePolicyRule><StylePolicyRule name="no_nces_sec_inbound_rule_0" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<Actions class="StylePolicyAction">nces_web_service_rule_0_results_2</Actions></StylePolicyRule><StylePolicyRule name="new-service-disc-web_rule_0" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<Direction>response-rule</Direction>
+<InputFormat>none</InputFormat>
+<OutputFormat>none</OutputFormat>
+<NonXMLProcessing>off</NonXMLProcessing>
+<Unprocessed>off</Unprocessed>
+<Actions class="StylePolicyAction">new-service-disc-web_rule_0_results_0</Actions></StylePolicyRule><StylePolicyRule name="no_nces_sec_inbound_rule_0" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
 <mAdminState>enabled</mAdminState>
 <Direction>request-rule</Direction>
 <InputFormat>none</InputFormat>
@@ -923,14 +1108,30 @@
 <NonXMLProcessing>off</NonXMLProcessing>
 <Unprocessed>off</Unprocessed>
 <Actions class="StylePolicyAction">Publishing_Action_0</Actions>
-<Actions class="StylePolicyAction">Publishing_Action_1</Actions></StylePolicyRule><StylePolicyRule name="service-discovery-web_rule_0" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<Actions class="StylePolicyAction">Publishing_Action_1</Actions></StylePolicyRule><StylePolicyRule name="reject-non-web-gui" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<Direction>request-rule</Direction>
+<InputFormat>none</InputFormat>
+<OutputFormat>none</OutputFormat>
+<NonXMLProcessing>off</NonXMLProcessing>
+<Unprocessed>off</Unprocessed>
+<Actions class="StylePolicyAction">new-service-disc-web_rule_1_filter_0</Actions>
+<Actions class="StylePolicyAction">new-service-disc-web_rule_1_results_1</Actions></StylePolicyRule><StylePolicyRule name="service-discovery-web_rule_0" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
 <mAdminState>enabled</mAdminState>
 <Direction>rule</Direction>
 <InputFormat>none</InputFormat>
 <OutputFormat>none</OutputFormat>
 <NonXMLProcessing>off</NonXMLProcessing>
 <Unprocessed>off</Unprocessed>
-<Actions class="StylePolicyAction">service-discovery-web_rule_0_results_0</Actions></StylePolicyRule><StylePolicyRule name="sign-inquery" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<Actions class="StylePolicyAction">service-discovery-web_rule_0_results_0</Actions></StylePolicyRule><StylePolicyRule name="service-discovery-web_rule_1" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<Direction>request-rule</Direction>
+<InputFormat>none</InputFormat>
+<OutputFormat>none</OutputFormat>
+<NonXMLProcessing>off</NonXMLProcessing>
+<Unprocessed>off</Unprocessed>
+<Actions class="StylePolicyAction">service-discovery-web_rule_1_filter_0</Actions>
+<Actions class="StylePolicyAction">service-discovery-web_rule_1_results_output_0</Actions></StylePolicyRule><StylePolicyRule name="sign-inquery" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
 <mAdminState>enabled</mAdminState>
 <Direction>request-rule</Direction>
 <InputFormat>none</InputFormat>
@@ -938,7 +1139,21 @@
 <NonXMLProcessing>off</NonXMLProcessing>
 <Unprocessed>off</Unprocessed>
 <Actions class="StylePolicyAction">sign-inquery_Action_0</Actions>
-<Actions class="StylePolicyAction">sign-inquery_Action_1</Actions></StylePolicyRule><URLMap name="default-attempt-stream-all" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<Actions class="StylePolicyAction">sign-inquery_Action_1</Actions></StylePolicyRule><StylePolicyRule name="webui-inbound" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<Direction>request-rule</Direction>
+<InputFormat>none</InputFormat>
+<OutputFormat>none</OutputFormat>
+<NonXMLProcessing>off</NonXMLProcessing>
+<Unprocessed>off</Unprocessed>
+<Actions class="StylePolicyAction">webui-inbound_results_1</Actions></StylePolicyRule><StylePolicyRule name="webui-outbound" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<Direction>rule</Direction>
+<InputFormat>none</InputFormat>
+<OutputFormat>none</OutputFormat>
+<NonXMLProcessing>off</NonXMLProcessing>
+<Unprocessed>off</Unprocessed>
+<Actions class="StylePolicyAction">service-discovery-web_rule_1_results_2</Actions></StylePolicyRule><URLMap name="default-attempt-stream-all" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
 <mAdminState>enabled</mAdminState>
 <URLMapRule>
 <Pattern>*</Pattern></URLMapRule></URLMap><CompileOptionsPolicy name="default-attempt-stream" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
@@ -1027,7 +1242,19 @@
 <Rule class="StylePolicyRule">outbound_no_security</Rule></PolicyMaps>
 <PolicyMaps>
 <Match class="Matching">Anything</Match>
-<Rule class="StylePolicyRule">inbound_nces_security</Rule></PolicyMaps></StylePolicy><StylePolicy name="no_nces_sec_inbound" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<Rule class="StylePolicyRule">inbound_nces_security</Rule></PolicyMaps></StylePolicy><StylePolicy name="new-service-disc-web" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<mAdminState>enabled</mAdminState>
+<DefStylesheetForSoap>store:///filter-reject-all.xsl</DefStylesheetForSoap>
+<DefStylesheetForXsl>store:///identity.xsl</DefStylesheetForXsl>
+<PolicyMaps>
+<Match class="Matching">Anything</Match>
+<Rule class="StylePolicyRule">new-service-disc-web_rule_0</Rule></PolicyMaps>
+<PolicyMaps>
+<Match class="Matching">webui</Match>
+<Rule class="StylePolicyRule">inbound</Rule></PolicyMaps>
+<PolicyMaps>
+<Match class="Matching">Anything</Match>
+<Rule class="StylePolicyRule">reject-non-web-gui</Rule></PolicyMaps></StylePolicy><StylePolicy name="no_nces_sec_inbound" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
 <mAdminState>enabled</mAdminState>
 <DefStylesheetForSoap>store:///filter-reject-all.xsl</DefStylesheetForSoap>
 <DefStylesheetForXsl>store:///identity.xsl</DefStylesheetForXsl>
@@ -1051,7 +1278,7 @@
 <DefStylesheetForXsl>store:///identity.xsl</DefStylesheetForXsl>
 <PolicyMaps>
 <Match class="Matching">Anything</Match>
-<Rule class="StylePolicyRule">service-discovery-web_rule_0</Rule></PolicyMaps></StylePolicy><WSStylePolicy name="default" intrinsic="true" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+<Rule class="StylePolicyRule">webui-outbound</Rule></PolicyMaps></StylePolicy><WSStylePolicy name="default" intrinsic="true" xmlns:dp="http://www.datapower.com/schemas/management" xmlns:env="http://www.w3.org/2003/05/soap-envelope">
 <mAdminState>enabled</mAdminState>
 <UserSummary>Default Processing Policy</UserSummary>
 <DefStylesheetForSoap>store:///filter-reject-all.xsl</DefStylesheetForSoap>
@@ -1072,7 +1299,7 @@
 <UserSummary>an example XML Firewall Service</UserSummary>
 <Priority>normal</Priority>
 <LocalPort>443</LocalPort>
-<RemoteAddress>sdprodsys.fgm.com</RemoteAddress>
+<RemoteAddress>sdtestsys.fgm.com</RemoteAddress>
 <RemotePort>38082</RemotePort>
 <HTTPTimeout>120</HTTPTimeout>
 <HTTPPersistTimeout>180</HTTPPersistTimeout>
@@ -1127,8 +1354,8 @@
 <UserSummary>service-discovery-web</UserSummary>
 <Priority>normal</Priority>
 <LocalPort>8443</LocalPort>
-<RemoteAddress>sdprodsys.fgm.com</RemoteAddress>
-<RemotePort>38082</RemotePort>
+<RemoteAddress>sdtestsys.fgm.com</RemoteAddress>
+<RemotePort>8443</RemotePort>
 <HTTPTimeout>120</HTTPTimeout>
 <HTTPPersistTimeout>180</HTTPPersistTimeout>
 <DoHostRewrite>on</DoHostRewrite>
@@ -1148,14 +1375,14 @@
 <DefaultParamNamespace>http://www.datapower.com/param/config</DefaultParamNamespace>
 <QueryParamNamespace>http://www.datapower.com/param/query</QueryParamNamespace>
 <MonitorProcessingPolicy>terminate-at-first-throttle</MonitorProcessingPolicy>
-<DebugMode persisted="false">off</DebugMode>
+<DebugMode persisted="false">on</DebugMode>
 <DebuggerType>internal</DebuggerType>
 <DebugHistory>25</DebugHistory>
 <WebGUIMode>off</WebGUIMode>
 <Type>static-backend</Type>
 <XMLManager class="XMLManager">default</XMLManager>
 <SSLProxy class="SSLProxyProfile">service-discovery-web</SSLProxy>
-<StylePolicy class="StylePolicy">service-discovery-web</StylePolicy>
+<StylePolicy class="StylePolicy">new-service-disc-web</StylePolicy>
 <MaxMessageSize>0</MaxMessageSize>
 <RequestType>preprocessed</RequestType>
 <ResponseType>preprocessed</ResponseType>
@@ -1191,4 +1418,4 @@
 <MaxRecords>3000</MaxRecords>
 <MaxMemoryKB>64000</MaxMemoryKB>
 <CaptureMode>faults</CaptureMode>
-<BufferMode>discard</BufferMode></WebServicesAgent></configuration><files><file name="local:///check_signature.xsl" src="local/check_signature.xsl" location="local" hash="aqmMkNYY/gwIpb5N5/sSvS9yt5M="/><file name="local:///ensure_assertion.xsl" src="local/ensure_assertion.xsl" location="local" hash="g7RrIahya9cLQ8XvcDokZJfBsdI="/><file name="local:///ensure_msgid.xsl" src="local/ensure_msgid.xsl" location="local" hash="Rq/sg/TwBFoxA369X59um1Sa370="/><file name="local:///service_config.xml" src="local/service_config.xml" location="local" hash="Ksw8QA0+LTZpK9QY7uWBxiaNLNQ="/><file name="local:///auth_route.xsl" src="local/auth_route.xsl" location="local" hash="hbp3uo7zykWrclcUdXYJLOVwl+c="/><file name="local:///DataPowerObserverRequest.xsl" src="local/DataPowerObserverRequest.xsl" location="local" hash="m1guOdY8du/I9qMRL7m+oIT9iKk="/><file name="local:///DataPowerObserverResponse.xsl" src="local/DataPowerObserverResponse.xsl" location="local" hash="8ns6kVGrBxVMagr0Y5QAw1TrhFU="/><file name="local:///sign-wssec-withid.xsl" src="local/sign-wssec-withid.xsl" location="local" hash="um8AUqCaezL4qvenO7ZV1d+Z1ak="/><file name="local:///config-xacml-service.xml" src="local/config-xacml-service.xml" location="local" hash="DtQKSstlID566bc1ctmhb0ccSWY="/><file name="local:///config-saml-service.xml" src="local/config-saml-service.xml" location="local" hash="IDyzumtbO4lSSU8Os4p/+YnzQSY="/><file name="local:///just_route.xsl" src="local/just_route.xsl" location="local" hash="cNJTxpp0TZcshsEAOD4H8nxJ/Qg="/><file name="local:///check_credentials.xsl" src="local/check_credentials.xsl" location="local" hash="DI53YsvW7kGz/sZzxy9b9jbYAww="/><file name="local:///auth.xsl" src="local/auth.xsl" location="local" hash="P3FNuiRdqJ92gULnrork+2QoeT8="/><file name="local:///valid_dns.xml" src="local/valid_dns.xml" location="local" hash="YAkfKORbn/PZnnvj5JN+TWunxP4="/><file name="local:///strip.xsl" src="local/strip.xsl" location="local" hash="2g4cOG0vKbbvMRLNGf3cHM9euqw="/><file name="config:///Nces.cfg" src="config/Nces.cfg" location="config" hash="om9A2CSWAFtHRRR4mUuA1jlVC0A="/><file name="webgui:///clixform.xsl" src="dp-aux/clixform.xsl" location="dp-aux" internal="true" hash="LltPiYUIBfTDWIP+J4RustjfTs0="/><file name="webgui:///SchemaUtil.xsl" src="dp-aux/SchemaUtil.xsl" location="dp-aux" internal="true" hash="3bAUL4xXdeYvH2Kjlmc8096tPzQ="/><file name="webgui:///management.xsl" src="dp-aux/management.xsl" location="dp-aux" internal="true" hash="ABCOA9XCwDzgwRYkzwlwj0nJ1wY="/><file name="webgui:///map-dmz.xsl" src="dp-aux/map-dmz.xsl" location="dp-aux" internal="true" hash="uGg9nNtMFGvcAh7wlcXTOew1gBQ="/><file name="webgui:///drMgmt.xml" src="dp-aux/drMgmt.xml" location="dp-aux" internal="true" hash="TdO9/Zydb58Kwz2eEqlvIUvHF5g="/><file name="webgui:///basetypes.xml" src="dp-aux/basetypes.xml" location="dp-aux" internal="true" hash="va3o1RHfV1IkJRgzaRvf9jCxSgo="/></files></datapower-configuration>
+<BufferMode>discard</BufferMode></WebServicesAgent></configuration><files><file name="local:///check_signature.xsl" src="local/check_signature.xsl" location="local" hash="aqmMkNYY/gwIpb5N5/sSvS9yt5M="/><file name="local:///ensure_assertion.xsl" src="local/ensure_assertion.xsl" location="local" hash="g7RrIahya9cLQ8XvcDokZJfBsdI="/><file name="local:///ensure_msgid.xsl" src="local/ensure_msgid.xsl" location="local" hash="Rq/sg/TwBFoxA369X59um1Sa370="/><file name="local:///service_config.xml" src="local/service_config.xml" location="local" hash="Ksw8QA0+LTZpK9QY7uWBxiaNLNQ="/><file name="local:///auth_route.xsl" src="local/auth_route.xsl" location="local" hash="hbp3uo7zykWrclcUdXYJLOVwl+c="/><file name="local:///DataPowerObserverRequest.xsl" src="local/DataPowerObserverRequest.xsl" location="local" hash="m1guOdY8du/I9qMRL7m+oIT9iKk="/><file name="local:///DataPowerObserverResponse.xsl" src="local/DataPowerObserverResponse.xsl" location="local" hash="8ns6kVGrBxVMagr0Y5QAw1TrhFU="/><file name="local:///sign-wssec-withid.xsl" src="local/sign-wssec-withid.xsl" location="local" hash="um8AUqCaezL4qvenO7ZV1d+Z1ak="/><file name="local:///config-xacml-service.xml" src="local/config-xacml-service.xml" location="local" hash="DtQKSstlID566bc1ctmhb0ccSWY="/><file name="local:///config-saml-service.xml" src="local/config-saml-service.xml" location="local" hash="IDyzumtbO4lSSU8Os4p/+YnzQSY="/><file name="local:///just_route.xsl" src="local/just_route.xsl" location="local" hash="cNJTxpp0TZcshsEAOD4H8nxJ/Qg="/><file name="local:///check_credentials.xsl" src="local/check_credentials.xsl" location="local" hash="DI53YsvW7kGz/sZzxy9b9jbYAww="/><file name="local:///auth.xsl" src="local/auth.xsl" location="local" hash="P3FNuiRdqJ92gULnrork+2QoeT8="/><file name="local:///valid_dns.xml" src="local/valid_dns.xml" location="local" hash="gAKT6XYo5Eq8QWIhzcOhtpL2Z+s="/><file name="local:///strip.xsl" src="local/strip.xsl" location="local" hash="2g4cOG0vKbbvMRLNGf3cHM9euqw="/><file name="config:///Nces.cfg" src="config/Nces.cfg" location="config" hash="btVPmpwSOSTooJ9ZBFOjTzMaLH0="/><file name="webgui:///clixform.xsl" src="dp-aux/clixform.xsl" location="dp-aux" internal="true" hash="LltPiYUIBfTDWIP+J4RustjfTs0="/><file name="webgui:///SchemaUtil.xsl" src="dp-aux/SchemaUtil.xsl" location="dp-aux" internal="true" hash="3bAUL4xXdeYvH2Kjlmc8096tPzQ="/><file name="webgui:///management.xsl" src="dp-aux/management.xsl" location="dp-aux" internal="true" hash="ABCOA9XCwDzgwRYkzwlwj0nJ1wY="/><file name="webgui:///map-dmz.xsl" src="dp-aux/map-dmz.xsl" location="dp-aux" internal="true" hash="uGg9nNtMFGvcAh7wlcXTOew1gBQ="/><file name="webgui:///drMgmt.xml" src="dp-aux/drMgmt.xml" location="dp-aux" internal="true" hash="TdO9/Zydb58Kwz2eEqlvIUvHF5g="/><file name="webgui:///basetypes.xml" src="dp-aux/basetypes.xml" location="dp-aux" internal="true" hash="va3o1RHfV1IkJRgzaRvf9jCxSgo="/></files></datapower-configuration>
