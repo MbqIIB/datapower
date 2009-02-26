@@ -1,0 +1,7 @@
+<valid_dns>
+  <dn>CN=service-consumer, OU=DISA, OU=PKI, OU=DoD, O=U.S. Government, C=US</dn>
+  <dn>/C=US/ST=VA/L=Reston/O=FGM/OU=IDS/CN=KirkM</dn>
+  <dn>/C=US/ST=Virginia/O=FGM/OU=IDS/CN=Mary Anne</dn>
+  <dn>/C=US/O=U.S. Government/OU=DoD/OU=PKI/OU=DISA/CN=Test.ABL.3010145114</dn>
+  <dn>/C=US/O=U.S.Government/OU=DoD/OU=PKI/OU=DISA/CN=metadata.dod.mil</dn>
+</valid_dns>

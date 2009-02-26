@@ -1,0 +1,177 @@
+<?xml version="1.0"?> 
+<!--
+  Licensed Materials - Property of IBM
+  IBM WebSphere DataPower Appliances
+  Copyright IBM Corporation 2007. All Rights Reserved.
+  US Government Users Restricted Rights - Use, duplication or disclosure
+  restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<base-types>
+
+<!--==============================================================-->
+<!-- these are the base types defined in drMgmtBase.h -->
+<!-- init: indicates what type of initializer the type takes -->
+<!--==============================================================-->
+
+        <type name="dmUInt32" init="number">
+            <minimum>0</minimum>
+            <maximum>0xFFFFFFFF</maximum>
+            <cli-arg>number</cli-arg>
+        </type>
+        <type name="dmUInt64" init="number">
+            <minimum>0</minimum>
+            <maximum>0xFFFFFFFFFFFFFFFFULL</maximum>
+            <cli-arg>number</cli-arg>
+        </type>
+        <type name="dmCounter32" init="number">
+            <minimum>0</minimum>
+            <maximum>0xFFFFFFFF</maximum>
+            <cli-arg>number</cli-arg>
+        </type>
+        <type name="dmCounter64" init="number">
+            <minimum>0</minimum>
+            <maximum>0xFFFFFFFFFFFFFFFFULL</maximum>
+            <cli-arg>number</cli-arg>
+        </type>
+        <!-- seconds -->
+        <type name="dmTimeInterval" init="number">
+            <minimum>0</minimum>
+            <maximum>0xFFFFFFFF</maximum>
+            <cli-arg>seconds</cli-arg>
+        </type>
+        <type name="dmTimeIntervalHundredths" init="number">
+            <minimum>0</minimum>
+            <maximum>0xFFFFFFFF</maximum>
+            <cli-arg>hundredths-seconds</cli-arg>
+        </type>
+        <type name="dmTimeIntervalMillis" init="number">
+            <minimum>0</minimum>
+            <maximum>0xFFFFFFFF</maximum>
+            <cli-arg>milliseconds</cli-arg>
+        </type>
+        <!-- time since epoch -->
+        <type name="dmTimestamp" init="number">
+            <minimum>0</minimum>
+            <maximum>0xFFFFFFFF</maximum>
+            <cli-arg>timestamp</cli-arg>
+        </type>
+        <type name="dmUInt16" init="number">
+            <minimum>0</minimum>
+            <maximum>0xFFFF</maximum>
+            <cli-arg>number</cli-arg>
+        </type>
+        <type name="dmIPPort" init="number">
+            <minimum>0</minimum>
+            <maximum>0xFFFF</maximum>
+            <cli-arg>ip-port</cli-arg>
+        </type>
+        <type name="dmLocalIPHostAddress" init="string" >
+            <format>(a.b.c.d or 0 for any)</format>
+            <cli-arg>dotted-ip or 0 for any</cli-arg>
+        </type>
+        <type name="dmIPHostAddress" init="string">
+            <format>(a.b.c.d)</format>
+            <cli-arg>dotted-ip</cli-arg>
+        </type>
+        <type name="dmIPNetAddress" init="string">
+            <format>(a.b.c.d/e)</format>
+            <cli-arg>dotted-ip/mask</cli-arg>
+        </type>
+        <type name="dmHostname" init="string">
+            <format>(a.b.c.d or hostname)</format>
+            <cli-arg>dotted-ip or hostname</cli-arg>
+        </type>
+        <type name="dmString" init="string">
+            <cli-arg>string</cli-arg>
+        </type>
+        <type name="dmPCRE" init="string">
+            <cli-arg>pcre</cli-arg>
+        </type>
+        <type name="dmXPathExpr" init="string">
+            <cli-arg>xpath</cli-arg>
+        </type>
+        <type name="dmEventCode" init="string">
+            <cli-arg>event-code</cli-arg>
+        </type>
+        <type name="dmEventCodeMatch" init="string">
+            <cli-arg>event-code match</cli-arg>
+        </type>
+        <type name="dmURL" init="string">
+            <cli-arg>url</cli-arg>
+        </type>
+        <type name="dmMACAddress" init="string">
+            <format>(a:b:c:d:e:f)</format>
+            <cli-arg>MAC a:b:c:d:e:f</cli-arg>
+        </type>
+        <type name="dmFSDirectory" init="string">
+            <cli-arg>directory</cli-arg>
+        </type>
+        <type name="dmFSFile" init="string">
+            <cli-arg>file</cli-arg>
+        </type>
+        <type name="dmAdminState" init="enumeration">
+          <value-list>
+            <value name="enabled" evalue="1"/>
+            <value name="disabled" evalue="2"/>
+          </value-list>
+          <cli-arg>enabled | disabled</cli-arg>
+        </type>
+        <type name="dmOpState" init="enumeration">
+          <value-list>
+            <value name="up" evalue="1"/>
+            <value name="down" evalue="2"/>
+          </value-list>
+          <cli-arg>up | down</cli-arg>
+        </type>
+        <type name="dmToggle" init="enumeration">
+          <value-list>
+            <value name="on" evalue="1"/>
+            <value name="off" evalue="2"/>
+          </value-list>
+          <cli-arg>on | off</cli-arg>
+        </type>
+        <type name="dmReference" init="pointer">
+            <cli-arg>object</cli-arg>
+        </type>
+        <type name="dmObjectClass" init="string">
+            <cli-arg>object class</cli-arg>
+        </type>
+        <type name="dmResourceURI" init="string">
+            <cli-arg>resource uri</cli-arg>
+        </type>
+        <type name="dmWSMIdentifier" init="string">
+            <display>WSM Identifier</display>
+            <summary>Network unique resource id</summary>
+            <description>WSM identifiers are used by Datapower products to specify and correlate resources.</description>
+        </type>
+        <type name="dmTimeOfDay" init="string">
+            <display>HH:MM</display>
+            <summary>Time of day in minute resolution using 24 hour time semantics</summary>
+            <description>Time of day in minute resolution using 24 hour time semantics.</description>
+            <cli-arg>time HH:MM</cli-arg>
+        </type>
+        <type name="dmXMLLocalName" init="string">
+            <display>XML Local Name</display>
+            <summary>The local name for an XML element or attribute.</summary>
+            <description>Set the local name for an XML element or attribute.</description>
+            <cli-arg>localname</cli-arg>
+        </type>
+        <type name="dmInt32" init="number">
+            <!-- for -2147483648  use hex to avoid compile error -->
+            <minimum>0x80000000</minimum>
+            <maximum>2147483647</maximum>
+            <cli-arg>number</cli-arg>
+        </type>
+        <type name="dmGauge32" init="number">
+            <minimum>0</minimum>
+            <maximum>0xFFFFFFFF</maximum>
+            <cli-arg>number</cli-arg>
+        </type>
+        <type name="dmFragmentID" init="string">
+            <display>WSDL Fragment Identifier</display>
+            <summary>The WSDL Fragment Identifier</summary>
+            <description>Set the WSDL Fragment Identifier</description>
+            <cli-arg>fragmentid</cli-arg>
+        </type>
+
+</base-types>
