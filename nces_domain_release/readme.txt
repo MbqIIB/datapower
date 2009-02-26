@@ -37,6 +37,20 @@ datapower box.
 11) Repeat this for the Validation credentials - these
 are the certs that this datapowerbox trusts.
 
-12) Don't forget to save the domain configuration,
+12) You will also need to adjust the host name and possibly
+the port where the systinet is installed. To do this, 
+go to the control panel and select the xml firewall
+icon, top about the middle of the screen.
+
+13) There will be two firewalls listed, and you need to do
+more or less the same thing to each. Select the 'nces_sd_policy'
+icon. This will bring up a screen which will allow you to configure
+the 'backend' host (called 'Server Address' in the GUI) and port.
+Make sure you hit 'Apply' to save your changes.
+
+14) Repease the last step for the service-discovery-web XML
+firewall.
+
+15) Don't forget to save the domain configuration,
 link at the very top  right: 'Save Config'.
 or keys, so you
